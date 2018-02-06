@@ -16,29 +16,26 @@ public class AssignmentEx4 {
 		//"입력이 완료되었습니다."를 출력하세요.
 		
 		Scanner scanner = new Scanner(System.in);
-		System.out.println("숫자를 입력하세요.");
 		
-		int press = scanner.nextInt();
 		
-		for(int i = 0; i < balls.length; i++) {
-			int num = balls[i];
-			if(press != num) {
-				balls = new int[6];
-				balls[0] = 45;
-				balls[1] = 20;
-				balls[2] = 14;
-				balls[3] = 2;
-				balls[4] = 32;
-				balls[5] = press;
-				System.out.println("입력이 완료됐습니다.");
-				
+		while(true) {
+			System.out.println("숫자를 입력해주세요.");
+			int number = scanner.nextInt();
+			boolean isPure = true;
+			for(int i = 0; i < balls.length-1; i++) {
+				if(balls[i] == number) {
+					isPure = false;
+					break;
+				}
 			}
-			else {
-				System.out.println("이미 입력된 숫자입니다.");
+			if(isPure) {
+				balls[5] = number;
 				break;
 			}
-			
+			else {System.out.println("숫자가 겹칩니다.");
+				};
 		}
+		
 		
 		
 	}
