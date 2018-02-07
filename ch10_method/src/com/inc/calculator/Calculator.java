@@ -9,7 +9,7 @@ public class Calculator {
 		System.out.println(multiply(10, 20));
 		System.out.println(divide(10, 20));
 		System.out.println(remain(10, 20));
-		System.out.println(factorial(5));
+		System.out.println(factorial(10));
 		
 
 	}
@@ -50,8 +50,8 @@ public class Calculator {
 	public static int factorial(int fac) {
 	
 		int facSum = 1;
-		for(int i = fac; i <= 1; i--) {
-			 facSum *= fac;
+		for(int i = 1; i <= fac; i++) {
+			 facSum = i*facSum;
 			 
 		}
 		

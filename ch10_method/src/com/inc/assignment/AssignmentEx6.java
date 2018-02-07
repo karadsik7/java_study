@@ -25,13 +25,13 @@ public class AssignmentEx6 {
 		
 		int[] number = new int[5];
 		
-		for(int i = 0; i < 5; i++) {
-			System.out.println("정수를 입력하세요.");
+		for(int i = 0; i < number.length; i++) {
+			System.out.printf("%d번째 숫자를 입력하세요.\n", i+1);
 			number[i] = scanner.nextInt();
 		}
 		
 		for(int i : absol(number)) {
-			System.out.println(i);
+			System.out.printf("%d ", i);
 		}
 		
 	}

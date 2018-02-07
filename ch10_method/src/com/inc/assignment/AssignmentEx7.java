@@ -14,9 +14,8 @@ public class AssignmentEx7 {
 		
 		//1.중복이랑 상관없이 6개의 랜덤한 숫자를 배열에 저장하세요.
 		
-		for(int i = 0; i < 6; i++) {
-		int randomNumber =  (int)(Math.random() * 45);
-		balls[i] = randomNumber;
+		for(int i = 0; i < balls.length; i++) {
+		balls[i] = (int)(Math.random() * 45 + 1);
 			for(int j = 0; j < i; j++) {
 				if(balls[i] == balls[j]) {
 					System.out.println("중복된 값이므로 다시 배정합니다.");

@@ -38,16 +38,21 @@ public class AssignmentEx2 {
 	
 	public static String ramenMachine(int money) {
 		
+		String result = "";
+		
 		if(money == 1000) {
 			System.out.println("라면을 조리중입니다.");
-			return "맛있는 라면";
+			result = "맛있는 라면";
 			
 		}
 		else {
 			System.out.println("자판기 : 돈이 정확하지 않습니다.");
-			return money + "원";
+			result = money + "원";
+		
 			
 		}
+		return result;
+		
 	}
 	
 }
