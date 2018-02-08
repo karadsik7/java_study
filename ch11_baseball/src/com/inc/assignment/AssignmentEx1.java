@@ -29,8 +29,8 @@ public class AssignmentEx1 {
 			//기능2
 			//getPredicts
 			int[] predicts = getPredicts();
-			int[] gg = compareArrays(answers, predicts);
-			boolean isEnd = print(gg[0], gg[1]);
+			boolean isEnd = compareArrays(answers, predicts);
+			
 			if(isEnd) {
 				break;
 			}
@@ -68,7 +68,7 @@ public class AssignmentEx1 {
 	}
 	
 	
-	public static int[] compareArrays(int[] answers, 
+	public static boolean compareArrays(int[] answers, 
 									    int[] predicts) {
 		//비교
 		int ball = 0;
@@ -84,8 +84,7 @@ public class AssignmentEx1 {
 				}
 			}
 		}
-		int[] sb = {strike, ball};
-		return sb;
+		return print(strike, ball);
 		
 		
 		
