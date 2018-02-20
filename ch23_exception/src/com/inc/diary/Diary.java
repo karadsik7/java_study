@@ -6,7 +6,6 @@ import java.util.Scanner;
 public class Diary {
 	
 	private String[] pages = new String[5]; 
-	
 	private Scanner scanner = new Scanner(System.in); 
 	private int choice;
 	
@@ -41,9 +40,9 @@ public class Diary {
 				System.out.println("빈 페이지");
 				return;
 			}
-			else{
 			System.out.println(pages[page-1]);
-			}
+			
+			
 		}
 		catch(ArrayIndexOutOfBoundsException e) {
 			System.out.println("잘못된 페이지를 입력했습니다.");
