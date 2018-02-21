@@ -26,12 +26,12 @@ public class StringBox {
 			}
 			stringsCopy[stringsCopy.length - 1] = str;
 			strings = stringsCopy;
-			return;
+			return; //배열 재생성 및 복사
 		}
 		for (int i = 0; i < strings.length; i++) {
 			if (strings[i] == null) {
 				strings[i] = str;
-				break;
+				break; // 배열에 값 add
 			}
 		}
 
@@ -61,14 +61,14 @@ public class StringBox {
 
 	}
 
-	// strings의 모든 요소의 값을 null로 만듬
+	// strings의 모든 요소의 값을 null로 만듦
 	public void removeAll() {
 		for (int i = 0; i < strings.length; i++) {
 			strings[i] = null;
 		}
 	}
 
-	public void print() {
+	public void print() { //배열값 출력
 		for (int i = 0; i < strings.length; i++) {
 			if (i == strings.length - 1) {
 				System.out.printf("%s\t", strings[i]);
@@ -77,6 +77,7 @@ public class StringBox {
 				System.out.printf("%s\t", strings[i]);
 			}
 		}
+		
 	}
 
 }
