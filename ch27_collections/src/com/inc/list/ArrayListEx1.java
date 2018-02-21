@@ -15,7 +15,7 @@ public class ArrayListEx1 {
 		for(int i = 0; i < seats.size(); i++) {
 			System.out.printf("%s\t", seats.get(i));
 		}
-		
+		 
 		
 		
 		
