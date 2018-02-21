@@ -8,7 +8,7 @@ public class Database {
 	public void insert(String input) {
 		//memory에는 ""또는 null이 저장될 수 없어야만 한다면?
 		//1. 예외를 직접 처리
-		if(input == null || "".equals(input) /*스트링값 이퀄비교할땐 고정된값을 먼저주고 
+		if(input == null || " ".equals(input) /*스트링값 이퀄비교할땐 고정된값을 먼저주고 
 		거기서 변화될 수 있는 값을 처리한다.*/){
 			System.out.println("공백은 입력할 수 없습니다.");
 			return;
