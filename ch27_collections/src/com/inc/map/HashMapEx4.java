@@ -2,6 +2,7 @@ package com.inc.map;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Set;
 
 public class HashMapEx4 {
 
@@ -26,6 +27,11 @@ public class HashMapEx4 {
 		System.out.println(kim.get("age"));
 		System.out.println(kim.get("job"));
 		
+		Set<String> keySet = kim.keySet();
+		
+		for(String key : keySet) {
+			System.out.printf("key : %s, value : %s\n",key, kim.get(key));
+		}
 		
 		ArrayList<HashMap<String, Object>> members = new ArrayList<>();
 		
