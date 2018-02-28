@@ -34,9 +34,9 @@ public class AssignmentEx1Frame extends JFrame {
 		initEvent();
 	}
 
-	public void initEvent() {
+	private void initEvent() {
 		
-		btn1.addMouseListener(new MouseAdapter() {
+		/*btn1.addMouseListener(new MouseAdapter() {
 
 			@Override
 			public void mouseReleased(MouseEvent arg0) {
@@ -61,7 +61,24 @@ public class AssignmentEx1Frame extends JFrame {
 				getContentPane().setBackground(Color.GREEN);
 			}
 			
-		});
+		}); 이렇게 하면 코드의 중복*/
+		
+		//그렇다면 중복을 막고 컴포넌트의 값을 가져온다
+		
+		MouseAdapter ma = new MouseAdapter() {
+
+			@Override
+			public void mouseReleased(MouseEvent e) { // 매개변수가 이벤트를 발생시킨 컴포넌트를 가져올 수 있음
+				
+				getContentPane().setBackground(e.getComponent().getForeground());
+				
+			}
+			
+		};
+		
+		btn1.addMouseListener(ma);
+		btn2.addMouseListener(ma);
+		btn3.addMouseListener(ma);
 		
 	
 	}

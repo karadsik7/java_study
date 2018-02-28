@@ -41,11 +41,10 @@ public class AssignmentEx2Frame extends JFrame {
 
 			@Override
 			public void keyReleased(KeyEvent e) {
-				if(e.getKeyCode() == KeyEvent.VK_ENTER) {
-					String buff = textField.getText();
-					textArea.append(buff + "\n");
-					textField.setText("");
-					
+				if(e.getKeyCode() == KeyEvent.VK_ENTER && !textField.getText().equals("")) {
+						String buff = textField.getText();
+						textArea.append(buff + "\n");
+						textField.setText(null);
 				}
 			}
 			
