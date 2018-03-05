@@ -38,7 +38,7 @@ public class BaseBall extends JFrame{
 	
 	
 	public BaseBall() {
-		setTitle("Main Frame");
+		setTitle("baseball");
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setBounds(300, 300, 500, 500);
 		setResizable(false);
@@ -94,6 +94,8 @@ public class BaseBall extends JFrame{
 				try {
 					getPredicts();
 					compare();
+					print();
+					resetfield();
 				}catch(NumberFormatException e) {
 					JOptionPane.showMessageDialog(null, "숫자만 입력하세요");
 				}catch(Exception e) {
@@ -104,12 +106,14 @@ public class BaseBall extends JFrame{
 		
 		restartBtn.addMouseListener(new MouseAdapter() {
 			public void mouseReleased(MouseEvent arg0) {
-				getAnswers();
+				restart();
 			}
 			
 		});
 		
 	}
+	
+	
 	
 	private void getPredicts() throws Exception{
 		
@@ -145,44 +149,68 @@ public class BaseBall extends JFrame{
 			while(answerSet.size() != 3) {
 				answerSet.add((int)(Math.random() * 10));
 			}
-			//System.out.println(answerSet); 디버깅용
+			System.out.println(answerSet); 
 			
-			answers = new ArrayList<>(answerSet);
+			answers = new ArrayList<>(answerSet); 
 	}
 	
 	private void compare() {
-		
+		this.strike = 0;
+		this.ball = 0;
 		for(int i = 0; i < answers.size(); i++) {
-			if(answers.get(i) == predicts.get(i)) {
+			if(answers.get(i).equals(predicts.get(i))) {
 				strike++;
 			}else{
 				for(int j = 0; j < answers.size(); j++) {
-					if(answers.get(i) == predicts.get(j)) {
+					if(answers.get(i).equals(predicts.get(j))) {
 						ball++;
 					}
 				}
 			}
 		}
-		
-		print();
 	}
 	
 	private void print() {
+		
+		for(int i : predicts) {
+			area.append(i+"\t");
+		}
 		if(strike == 3) {
-			JOptionPane.showMessageDialog(null, "3 strike out!");
-			strike = 0;
-			getAnswers();
-			area.setText(null);
+			ending();
 		}else if(strike == 0 && ball == 0) {
 			//3아웃입니다
 			area.append("3 OUT" + "\n");
 		}else {
 			//x스트라이크 x볼입니다.
 			area.append(strike + "Strike, " + ball + "ball" + "\n");
-			strike = 0;
-			ball = 0;
 		}
 		
+	}
+	
+	private void resetfield() {
+		
+		firstField.setText(null);
+		secondField.setText(null);
+		thirdField.setText(null);
+		
+	}
+	
+	private void restart() {
+		area.setText(null);
+		getAnswers();
+	}
+	
+	private void ending() {
+		String[] choices = {"다시 시작", "종료"};
+		int choice = 
+			JOptionPane.showOptionDialog(this, "축하합니다!", "3 Strike", JOptionPane.YES_NO_OPTION, 
+					JOptionPane.QUESTION_MESSAGE, null, choices, choices[0]);
+				
+		if(choice == 0) {
+			restart();
+		}else {
+			System.exit(0);
+		}
 	}
 	
 	
