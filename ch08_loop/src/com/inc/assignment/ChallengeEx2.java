@@ -14,6 +14,21 @@ public class ChallengeEx2 {
 		//**
 		//*
 		
+		boolean as = true;
+		for(int i = 0; i >= 0;) {
+			for(int j = 0; j < i + 1; j++) {
+				System.out.print("*");
+			}
+			System.out.println();
+			if(as) {
+				i++;
+				if(i > 3) {
+					as = false;
+				}
+			}else {
+				i--;
+			}
+		}
 		
 		
 		
