@@ -19,9 +19,8 @@ public class DownFrame extends JFrame{
 	JPanel canvas;
 	Image manImg;
 	Point manPoint;
-	Point p;
 	Vector<Point> pointList;
-	
+	long startTime = System.currentTimeMillis();
 	
 	public DownFrame() {
 		setTitle("Main Frame");
@@ -83,9 +82,15 @@ public class DownFrame extends JFrame{
 					g.clearRect(0, 0, getSize().width, getSize().height);
 					synchronized (pointList) {
 						for(Point p : pointList) {
+							double distance = Point.distance(p.x, p.y, manPoint.x, manPoint.y);
+							if(distance < 10) {
+								System.exit(0);
+							}
 							g.fillOval(p.x, p.y, 30, 30);
 						}
 						g.drawImage(manImg, manPoint.x, manPoint.y, this);
+						double time = System.currentTimeMillis() - startTime;
+						g.drawString("시간: " + time /1000, 300, 100);
 					}
 					
 			}
