@@ -97,7 +97,7 @@ public class SignUpAssignment extends JFrame{
 	
 	private void inputUser() {
 		
-		userList = new ArrayList<>();
+		userList = null;
 		ObjectInputStream ois = null;
 		
 		try {
@@ -149,11 +149,11 @@ public class SignUpAssignment extends JFrame{
 				e.printStackTrace();
 			}
 		}
-		for(User i : userList) {
-			System.out.println(i.getId());
-			System.out.println(i.getPwd());
-			System.out.println(i.getName());
-		}
+			/*for(User i : userList) {
+				System.out.println(i.getId());
+				System.out.println(i.getPwd());
+				System.out.println(i.getName());
+			} 디버깅용*/
 		
 		
 		
