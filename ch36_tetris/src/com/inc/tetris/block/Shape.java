@@ -1,6 +1,19 @@
 package com.inc.tetris.block;
 
+import java.awt.Color;
+
 public class Shape {
+	
+	public static final Color[] colors = {
+		Color.red,
+		Color.blue,
+		Color.ORANGE,
+		Color.green,
+		Color.yellow,
+		Color.cyan,
+		Color.MAGENTA
+	};
+	
 	public static final int[][][][] SHAPE = {
 			//ㄱ
 			{
